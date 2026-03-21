@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Jesse Orihuela • AI-Native VibeDesigner</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-dim": "#00e6e6",
+              "tertiary": "#a0ffc4",
+              "surface-container": "#1a191b",
+              "primary-fixed-dim": "#00e6e6",
+              "on-primary-fixed": "#004343",
+              "on-secondary-container": "#fff5f9",
+              "on-tertiary-container": "#005b35",
+              "on-primary": "#006767",
+              "on-secondary": "#400040",
+              "secondary-fixed-dim": "#ffa6f3",
+              "tertiary-fixed": "#00fc9d",
+              "outline": "#767576",
+              "tertiary-dim": "#00ec93",
+              "surface-variant": "#262627",
+              "on-surface-variant": "#adaaab",
+              "on-primary-fixed-variant": "#006262",
+              "secondary-fixed": "#ffbdf3",
+              "surface-container-low": "#131314",
+              "inverse-surface": "#fcf8f9",
+              "on-primary-container": "#005d5d",
+              "background": "#0e0e0f",
+              "error": "#ff716c",
+              "on-tertiary": "#00643b",
+              "on-secondary-fixed-variant": "#920091",
+              "on-tertiary-fixed-variant": "#00653c",
+              "on-error": "#490006",
+              "on-surface": "#ffffff",
+              "outline-variant": "#484849",
+              "tertiary-container": "#00fc9d",
+              "error-dim": "#d7383b",
+              "primary-fixed": "#00f5f5",
+              "inverse-on-surface": "#565556",
+              "secondary": "#ff51fa",
+              "inverse-primary": "#006a6a",
+              "surface-dim": "#0e0e0f",
+              "primary-container": "#00ffff",
+              "primary": "#c1fffe",
+              "surface-container-high": "#201f21",
+              "tertiary-fixed-dim": "#00ec93",
+              "error-container": "#9f0519",
+              "surface-container-highest": "#262627",
+              "secondary-container": "#a900a9",
+              "on-tertiary-fixed": "#004528",
+              "surface-container-lowest": "#000000",
+              "on-background": "#ffffff",
+              "secondary-dim": "#ff51fa",
+              "surface-tint": "#c1fffe",
+              "surface": "#0e0e0f",
+              "surface-bright": "#2c2c2d",
+              "on-error-container": "#ffa8a3",
+              "on-secondary-fixed": "#620061"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+            animation: {
+              'pulse-gradient': 'pulse-gradient 4s ease-in-out infinite',
+              'spin-slow': 'spin 12s linear infinite',
+            },
+            keyframes: {
+              'pulse-gradient': {
+                '0%, 100%': { backgroundPosition: '0% 50%' },
+                '50%': { backgroundPosition: '100% 50%' },
+              }
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .neural-bg {
+            background-color: #0e0e0f;
+            background-image: 
+                radial-gradient(circle at 2px 2px, rgba(193, 255, 254, 0.05) 1px, transparent 0),
+                linear-gradient(to right, rgba(255, 255, 255, 0.01) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
+            background-size: 32px 32px, 128px 128px, 128px 128px;
+        }
+        .glass-card {
+            background: rgba(38, 38, 39, 0.6);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(0, 255, 255, 0.3);
+            background: rgba(45, 45, 46, 0.7);
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.1);
+        }
+        .glow-text-pulse {
+            background: linear-gradient(90deg, #c1fffe, #ff51fa, #c1fffe);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: pulse-gradient 4s linear infinite;
+        }
+        .hero-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 40%;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+            filter: blur(80px);
+            z-index: -1;
+        }
+        .circular-progress {
+            background: conic-gradient(var(--tw-gradient-from) var(--progress), transparent 0deg);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-on-primary-container neural-bg min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#0e0e0f]/80 backdrop-blur-xl border-b border-white/10 shadow-[0_0_20px_rgba(0,255,255,0.05)]">
+<div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#c1fffe]" data-icon="terminal">terminal</span>
+<span class="font-['Space_Grotesk'] tracking-widest uppercase text-sm font-bold text-[#c1fffe] drop-shadow-md">AI PRODUCT DESIGNER</span>
+</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-[#c1fffe] font-['Space_Grotesk'] text-sm tracking-widest uppercase hover:text-[#ff51fa] transition-all duration-300" href="https://behance.com/jesseorihuela" target="_blank">Portfolio</a>
+<a class="text-gray-500 font-['Space_Grotesk'] text-sm tracking-widest uppercase hover:text-[#ff51fa] transition-all duration-300" href="https://www.linkedin.com/in/jesseorihuela/" target="_blank">LinkedIn</a>
+<a class="text-gray-500 font-['Space_Grotesk'] text-sm tracking-widest uppercase hover:text-[#ff51fa] transition-all duration-300" href="https://grok.com/share/bGVnYWN5LWNvcHk_0ab37a0c-a9b9-4856-8daf-03be3cb54bb0" target="_blank">Grok Verified Resume</a>
+</nav>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#c1fffe]" data-icon="menu">menu</span>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-12 px-6 max-w-7xl mx-auto space-y-32">
+<!-- Hero Section -->
+<section class="relative min-h-[700px] flex flex-col justify-center" id="intro">
+<div class="hero-glow"></div>
+<div class="absolute -top-20 -left-20 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] animate-pulse"></div>
+<div class="absolute top-40 -right-20 w-[400px] h-[400px] bg-secondary/10 rounded-full blur-[100px]"></div>
+<div class="relative z-10 space-y-10">
+<div class="flex flex-wrap gap-3">
+<span class="px-4 py-1.5 bg-white/10 backdrop-blur-xl border border-white/20 text-primary-dim text-[10px] tracking-widest uppercase font-bold rounded-full">MIT BS</span>
+<span class="px-4 py-1.5 bg-white/10 backdrop-blur-xl border border-white/20 text-secondary text-[10px] tracking-widest uppercase font-bold rounded-full">3x EXITS</span>
+<span class="px-4 py-1.5 bg-white/10 backdrop-blur-xl border border-white/20 text-tertiary text-[10px] tracking-widest uppercase font-bold rounded-full">VIBEDESIGN CREATOR</span>
+</div>
+<h1 class="font-headline text-6xl md:text-[11rem] font-bold tracking-tighter leading-[0.9] max-w-5xl">
+                JESSE <span class="glow-text-pulse">ORIHUELA</span>
+</h1>
+<p class="font-headline text-xl md:text-3xl text-on-surface-variant font-light max-w-3xl leading-relaxed">
+                Senior AI/UI/UX Product Designer • VibeDesign Practitioner • Grok + Figma Make
+            </p>
+<div class="space-y-8">
+<div class="flex flex-wrap gap-6 pt-4">
+<a class="px-10 py-5 bg-primary-container text-on-primary font-headline font-bold uppercase tracking-widest text-sm shadow-[0_0_30px_rgba(0,255,255,0.4)] hover:scale-105 transition-transform inline-block" href="https://behance.com/jesseorihuela" rel="noopener noreferrer" target="_blank">
+                        Portfolio
+                    </a>
+<a class="px-10 py-5 bg-white/5 backdrop-blur-xl border border-white/10 text-on-surface font-headline font-bold uppercase tracking-widest text-sm hover:bg-white/15 transition-all inline-block" href="https://grok.com/share/bGVnYWN5LWNvcHk_0ab37a0c-a9b9-4856-8daf-03be3cb54bb0" rel="noopener noreferrer" target="_blank">
+                        Grok Verified Resume
+                    </a>
+</div>
+<div class="inline-flex items-center gap-4 px-6 py-3 bg-white/5 backdrop-blur-2xl border border-white/10 rounded-full shadow-lg shadow-cyan-500/10">
+<div class="w-2 h-2 rounded-full bg-primary-dim animate-pulse"></div>
+<span class="text-xs font-mono tracking-wider text-on-surface-variant">
+  AI-native designer passionate about language models and social systems. Currently using VibeDesign workflows to ship consumer AI experiences fast. 3x exits ($150M+), MIT alum.
+<span class="text-primary-dim">ContractSafe AI pivot</span>
+</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Key Metrics Bento Grid -->
+<section class="space-y-12" id="metrics">
+<div class="flex items-center gap-4">
+<h2 class="font-headline text-3xl font-bold tracking-tight text-primary">CORE_METRICS</h2>
+<div class="h-[1px] flex-grow bg-gradient-to-r from-primary/30 to-transparent"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<!-- Major Exit Card -->
+<div class="md:col-span-2 glass-card p-10 rounded-2xl relative overflow-hidden group">
+<div class="absolute -top-10 -right-10 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-[16rem] text-primary" data-icon="rocket_launch">rocket_launch</span>
+</div>
+<div class="relative z-10 space-y-6">
+<div class="text-[10px] tracking-[0.3em] uppercase text-primary-dim font-bold">Capital Evolution</div>
+<div class="text-7xl md:text-8xl font-headline font-black text-on-surface tracking-tighter">$150M+</div>
+<div class="text-xl text-on-surface-variant font-light max-w-md">Total aggregate value across 3 strategic exits: PrescribeWellness, karmadata, and Datum Source.</div>
+</div>
+</div>
+<!-- 4,000% Growth -->
+<div class="glass-card p-8 rounded-2xl flex flex-col justify-between group shadow-cyan-500/5 hover:shadow-cyan-500/20">
+<div class="flex justify-between items-start">
+<div class="text-[10px] tracking-[0.3em] uppercase text-primary-dim font-bold">Velocity</div>
+<div class="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="trending_up">trending_up</span>
+</div>
+</div>
+<div class="space-y-2">
+<div class="text-5xl font-headline font-bold text-on-surface">4,000%</div>
+<p class="text-xs text-on-surface-variant font-light uppercase tracking-widest">Revenue Growth Engineered</p>
+</div>
+<div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-primary-dim w-[90%] shadow-[0_0_10px_#00e6e6]"></div>
+</div>
+</div>
+<!-- Millions of Users -->
+<div class="glass-card p-8 rounded-2xl flex flex-col justify-between group shadow-secondary/5 hover:shadow-secondary/20">
+<div class="flex justify-between items-start">
+<div class="text-[10px] tracking-[0.3em] uppercase text-secondary font-bold">Scale</div>
+<div class="w-10 h-10 rounded-full border border-secondary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-xl" data-icon="groups">groups</span>
+</div>
+</div>
+<div class="space-y-2">
+<div class="text-5xl font-headline font-bold text-on-surface">MILLIONS</div>
+<p class="text-xs text-on-surface-variant font-light uppercase tracking-widest">Global Users Impacted</p>
+</div>
+<div class="flex gap-1">
+<div class="h-8 w-1.5 bg-secondary/40 rounded-full"></div>
+<div class="h-10 w-1.5 bg-secondary/60 rounded-full"></div>
+<div class="h-12 w-1.5 bg-secondary rounded-full"></div>
+<div class="h-8 w-1.5 bg-secondary/50 rounded-full"></div>
+</div>
+</div>
+<!-- Inc 5000 -->
+<div class="glass-card p-8 rounded-2xl flex flex-col justify-between shadow-tertiary/5 hover:shadow-tertiary/20">
+<div class="text-[10px] tracking-[0.3em] uppercase text-tertiary font-bold">Recognition</div>
+<div class="space-y-2">
+<div class="text-5xl font-headline font-bold text-on-surface">#INC5000</div>
+<p class="text-sm text-on-surface-variant font-light">3x Consecutive Top Health Company ranking for growth &amp; excellence.</p>
+</div>
+<div class="flex items-center gap-2 text-tertiary text-[10px] font-mono">
+<span class="material-symbols-outlined text-sm" data-icon="military_tech">military_tech</span>
+                    ELITE_TIER_ACHIEVEMENT
+                </div>
+</div>
+<!-- Voice AI -->
+<div class="md:col-span-2 glass-card p-8 rounded-2xl flex items-center gap-8 shadow-primary/5 hover:shadow-primary/20">
+<div class="w-24 h-24 rounded-full border-4 border-primary/20 flex items-center justify-center shrink-0 relative">
+<div class="absolute inset-0 rounded-full border-t-4 border-primary animate-spin-slow"></div>
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="mic">mic</span>
+</div>
+<div class="space-y-2">
+<div class="text-[10px] tracking-[0.3em] uppercase text-primary-dim font-bold">Multimodal AI</div>
+<h3 class="text-3xl font-headline font-bold">Voice Interface Scale</h3>
+<p class="text-sm text-on-surface-variant max-w-sm">Architected enterprise voice experiences for Amazon Alexa and Google Home ecosystems.</p>
+</div>
+</div>
+<!-- Efficiency Card -->
+<div class="glass-card p-8 rounded-2xl flex flex-col justify-between">
+<div class="text-[10px] tracking-[0.3em] uppercase text-tertiary font-bold">Optimized Output</div>
+<div class="space-y-2">
+<div class="text-5xl font-headline font-bold text-on-surface">+200%</div>
+<p class="text-sm text-on-surface-variant font-light">Workflow throughput at Datum Source.</p>
+</div>
+<div class="h-2 w-full bg-white/5 rounded-full relative overflow-hidden">
+<div class="absolute top-0 left-0 h-full bg-tertiary w-3/4"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- VibeDesign Spotlight -->
+<section class="relative overflow-hidden">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-full bg-gradient-to-r from-primary/5 via-secondary/5 to-tertiary/5 blur-[100px] -z-10"></div>
+<div class="glass-card p-12 md:p-16 rounded-[2.5rem] border-white/20 shadow-2xl">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="space-y-8">
+<div class="inline-block px-4 py-1 bg-primary/10 border border-primary/30 rounded text-primary text-[10px] tracking-[0.3em] font-bold">SPOTLIGHT</div>
+<h2 class="font-headline text-5xl font-bold tracking-tight">VibeDesign™ Methodology</h2>
+<p class="text-2xl text-on-surface-variant font-light leading-relaxed">
+                        Pioneered VibeDesign – rapid AI-assisted iteration (Figma Make + Grok) at <span class="text-primary font-bold">10× velocity</span>. 
+                        Precursor to emerging AI design canvases.
+                    </p>
+<div class="flex items-center gap-12 pt-4">
+<div class="flex flex-col gap-2 items-center text-center">
+<div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-primary shadow-lg shadow-primary/10">
+<span class="material-symbols-outlined text-3xl" data-icon="psychology_alt">psychology_alt</span>
+</div>
+<span class="text-[10px] font-mono text-outline uppercase">Prompt</span>
+</div>
+<span class="material-symbols-outlined text-white/20" data-icon="arrow_forward">arrow_forward</span>
+<div class="flex flex-col gap-2 items-center text-center">
+<div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-secondary shadow-lg shadow-secondary/10">
+<span class="material-symbols-outlined text-3xl" data-icon="refresh">refresh</span>
+</div>
+<span class="text-[10px] font-mono text-outline uppercase">Iterate</span>
+</div>
+<span class="material-symbols-outlined text-white/20" data-icon="arrow_forward">arrow_forward</span>
+<div class="flex flex-col gap-2 items-center text-center">
+<div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-tertiary shadow-lg shadow-tertiary/10">
+<span class="material-symbols-outlined text-3xl" data-icon="rocket">rocket</span>
+</div>
+<span class="text-[10px] font-mono text-outline uppercase">Prototype</span>
+</div>
+</div>
+</div>
+<div class="relative glass-card bg-black/40 p-1 rounded-3xl border-white/10 overflow-hidden">
+<div class="bg-surface-container-lowest p-8 rounded-[1.4rem] space-y-6">
+<div class="flex items-center justify-between border-b border-white/5 pb-4">
+<span class="text-[10px] font-mono text-primary">VIBE_SYSTEM_INIT::v1.0</span>
+<div class="flex gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full bg-error/50"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-primary/50"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-tertiary/50"></div>
+</div>
+</div>
+<div class="space-y-4">
+<div class="h-4 w-full bg-white/5 rounded animate-pulse"></div>
+<div class="h-4 w-5/6 bg-white/5 rounded animate-pulse" style="animation-delay: 0.2s"></div>
+<div class="h-4 w-4/6 bg-white/5 rounded animate-pulse" style="animation-delay: 0.4s"></div>
+</div>
+<div class="pt-6">
+<div class="px-5 py-4 rounded-xl border border-primary/20 bg-primary/5 font-mono text-xs text-primary flex items-center gap-4">
+<span class="material-symbols-outlined text-lg animate-pulse" data-icon="terminal">terminal</span>
+                                system.vibe_prototype(agent_core)
+                            </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Experience & Agentic Workflow -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start" id="workflow">
+<div class="space-y-12">
+<div class="space-y-4">
+<h2 class="font-headline text-4xl font-bold tracking-tighter text-secondary">AI_WORKFLOW: Agentic UX</h2>
+<p class="text-xl text-on-surface-variant leading-relaxed">
+                    Moving from static pixels to high-fidelity agentic interfaces that think ahead. 
+                    Designing for the next era of human-machine orchestration.
+                </p>
+</div>
+<div class="space-y-6">
+<div class="flex gap-6 items-start group">
+<div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div>
+<h4 class="font-headline text-lg font-bold">Glass Box UIs</h4>
+<p class="text-sm text-outline">Transparent AI reasoning paths visualized for high-trust industrial applications.</p>
+</div>
+</div>
+<div class="flex gap-6 items-start group">
+<div class="w-12 h-12 rounded-xl bg-secondary/10 border border-secondary/20 flex items-center justify-center shrink-0 group-hover:bg-secondary/20 transition-all">
+<span class="material-symbols-outlined text-secondary text-xl" data-icon="smart_toy">smart_toy</span>
+</div>
+<div>
+<h4 class="font-headline text-lg font-bold">Self-Adapting Layouts</h4>
+<p class="text-sm text-outline">Interfaces that reconfigure based on autonomous agent task priority and confidence.</p>
+</div>
+</div>
+<div class="flex gap-6 items-start group">
+<div class="w-12 h-12 rounded-xl bg-tertiary/10 border border-tertiary/20 flex items-center justify-center shrink-0 group-hover:bg-tertiary/20 transition-all">
+<span class="material-symbols-outlined text-tertiary text-xl" data-icon="data_object">data_object</span>
+</div>
+<div>
+<h4 class="font-headline text-lg font-bold">Technical Implementation</h4>
+<p class="text-sm text-outline">Full-stack proficiency in JS, Perl, React, and voice AI ecosystem development.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative glass-card p-1 rounded-2xl glow-cyan overflow-hidden hover:scale-[1.01]">
+<div class="bg-surface-container-lowest p-8 rounded-2xl border border-white/5 space-y-8">
+<div class="flex justify-between items-center border-b border-white/10 pb-4">
+<span class="font-mono text-[10px] text-primary">MODULE://INTERFACE_STUDY_01</span>
+<div class="flex gap-2">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="h-32 rounded bg-surface-container-high border border-white/5 p-4 flex flex-col justify-end">
+<div class="h-1 w-full bg-primary/20 rounded-full mb-2"></div>
+<div class="h-1 w-2/3 bg-primary/40 rounded-full"></div>
+</div>
+<div class="h-32 rounded bg-surface-container-high border border-white/5 p-4 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-primary/20" data-icon="model_training" data-weight="fill" style="font-variation-settings: 'FILL' 1;">model_training</span>
+</div>
+</div>
+<div class="space-y-3">
+<div class="h-4 w-full bg-surface-container-high rounded animate-pulse"></div>
+<div class="h-4 w-5/6 bg-surface-container-high rounded animate-pulse"></div>
+<div class="h-4 w-4/6 bg-surface-container-high rounded animate-pulse"></div>
+</div>
+<div class="pt-4">
+<div class="px-4 py-3 rounded border border-primary/20 bg-primary/5 font-mono text-xs text-primary flex items-center gap-3">
+<span class="material-symbols-outlined text-sm" data-icon="terminal">terminal</span>
+                        system.execute(agent_workflow_vibe)
+                    </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Education -->
+<div class="flex flex-wrap gap-6 pb-12">
+<a class="px-10 py-5 bg-primary-container text-on-primary font-headline font-bold uppercase tracking-widest text-sm shadow-[0_0_30px_rgba(0,255,255,0.4)] hover:scale-105 transition-transform inline-block" href="https://behance.com/jesseorihuela" rel="noopener noreferrer" target="_blank">
+    Portfolio
+  </a>
+<a class="px-10 py-5 bg-white/5 backdrop-blur-xl border border-white/10 text-on-surface font-headline font-bold uppercase tracking-widest text-sm hover:bg-white/15 transition-all inline-block" href="https://grok.com/share/bGVnYWN5LWNvcHk_0ab37a0c-a9b9-4856-8daf-03be3cb54bb0" rel="noopener noreferrer" target="_blank">
+    Grok Verified Resume
+  </a>
+</div><section class="space-y-12" id="education">
+<div class="flex items-center gap-4">
+<h2 class="font-headline text-3xl font-bold tracking-tight text-tertiary">ACADEMIC_FOUNDATION</h2>
+<div class="h-[1px] flex-grow bg-gradient-to-r from-tertiary/30 to-transparent"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="glass-card p-10 rounded-2xl flex gap-8 border-l-4 border-primary">
+<div class="w-20 h-20 shrink-0 bg-primary/10 rounded-2xl flex items-center justify-center text-primary border border-primary/20">
+<span class="material-symbols-outlined text-4xl" data-icon="school">school</span>
+</div>
+<div class="space-y-3">
+<h3 class="font-headline text-2xl font-bold">MIT</h3>
+<p class="text-on-surface-variant font-medium text-lg">BS — Art &amp; Design + CS</p>
+<p class="text-sm text-outline font-light leading-relaxed">Integrated technical implementation and visual communication at the world's leading engineering institution.</p>
+</div>
+</div>
+<div class="glass-card p-10 rounded-2xl flex gap-8 border-l-4 border-secondary">
+<div class="w-20 h-20 shrink-0 bg-secondary/10 rounded-2xl flex items-center justify-center text-secondary border border-secondary/20">
+<span class="material-symbols-outlined text-4xl" data-icon="verified_user">verified_user</span>
+</div>
+<div class="space-y-3">
+<h3 class="font-headline text-2xl font-bold">ELVTR</h3>
+<p class="text-on-surface-variant font-medium text-lg">AI Product Design Certificate</p>
+<p class="text-sm text-outline font-light leading-relaxed">Specialized instruction in designing enterprise-grade AI systems, LLM interactions, and cognitive user flows via ELVTR.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#0e0e0f] border-t border-white/10 py-16">
+<div class="max-w-7xl mx-auto px-6 flex flex-col items-center justify-center space-y-8 w-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#c1fffe]" data-icon="terminal">terminal</span>
+<span class="font-['Space_Grotesk'] tracking-widest uppercase text-lg font-bold text-[#c1fffe]">JESSE ORIHUELA</span>
+</div>
+<nav class="flex gap-12">
+<a class="font-['Inter'] text-xs tracking-[0.2em] uppercase text-gray-500 hover:text-[#c1fffe] transition-all" href="https://behance.com/jesseorihuela" target="_blank">Portfolio</a>
+<a class="font-['Inter'] text-xs tracking-[0.2em] uppercase text-gray-500 hover:text-[#c1fffe] transition-all" href="https://www.linkedin.com/in/jesseorihuela/" target="_blank">LinkedIn</a>
+<a class="font-['Inter'] text-xs tracking-[0.2em] uppercase text-gray-500 hover:text-[#c1fffe] transition-all" href="https://grok.com/share/bGVnYWN5LWNvcHk_0ab37a0c-a9b9-4856-8daf-03be3cb54bb0" target="_blank">Grok Verified Resume</a>
+</nav>
+<div class="text-[10px] font-mono tracking-[0.2em] uppercase text-gray-600 text-center">
+            © 2024 Jesse Orihuela
+        </div>
+</div>
+</footer>
+<!-- Mobile Navigation -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-[#0e0e0f]/95 backdrop-blur-2xl z-50 flex justify-around items-center py-5 border-t border-white/10">
+<a class="flex flex-col items-center text-[#c1fffe]" href="#intro">
+<span class="material-symbols-outlined" data-icon="home_app_logo">home_app_logo</span>
+<span class="text-[8px] uppercase tracking-tighter mt-1">Intro</span>
+</a>
+<a class="flex flex-col items-center text-gray-400" href="#metrics">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span class="text-[8px] uppercase tracking-tighter mt-1">Metrics</span>
+</a>
+<a class="flex flex-col items-center text-gray-400" href="#workflow">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span class="text-[8px] uppercase tracking-tighter mt-1">AI_Flow</span>
+</a>
+</nav>
+</body></html>
