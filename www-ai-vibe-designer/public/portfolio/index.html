@@ -14,6 +14,8 @@ tailwind.config = {
       colors: {
         ink: "#0e0e0f",
         cyan: "#c1fffe",
+        cyandim: "#00e6e6",
+        magenta: "#ff51fa",
         mute: "#adaaab",
         hold: "#262627"
       },
@@ -50,8 +52,21 @@ tailwind.config = {
     text-align: center;
   }
   a { cursor: pointer; }
+  .glow-text-pulse {
+    background: linear-gradient(90deg, #c1fffe, #ff51fa, #c1fffe);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: pulse-gradient 4s linear infinite;
+  }
+  @keyframes pulse-gradient {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
   @media (prefers-reduced-motion: reduce) {
     .card { transition: none; }
+    .glow-text-pulse { animation: none; }
   }
 </style>
 </head>
@@ -69,9 +84,19 @@ tailwind.config = {
   </div>
 </header>
 <main class="max-w-6xl mx-auto px-5 pt-10 pb-20">
-  <p class="font-display text-[11px] tracking-[0.22em] uppercase text-cyan">Portfolio</p>
-  <h1 class="font-display text-4xl sm:text-6xl font-bold tracking-tighter mt-3">Jesse Orihuela</h1>
-  <p class="text-mute text-lg mt-3 max-w-xl">Senior AI Product Designer. Three projects. The pictures open the case study.</p>
+  <p class="font-display text-[11px] tracking-[0.22em] uppercase text-cyandim">Portfolio</p>
+  <h1 class="font-display font-bold tracking-tighter leading-[0.9] mt-3 whitespace-nowrap text-[clamp(1.7rem,7.4vw,4.75rem)]">
+    <span class="text-white">JESSE </span><span class="glow-text-pulse">ORIHUELA</span>
+  </h1>
+  <p class="font-display text-xl sm:text-2xl text-white/90 mt-4">Senior AI Product Designer</p>
+  <p class="text-mute text-base sm:text-lg leading-relaxed max-w-2xl mt-4">
+    Leading Agentic Canvas at DXC. Named agents, Glass Box oversight, and Grok bots on a live Figma system. Open to Senior, Staff, and Principal roles.
+  </p>
+  <div class="flex flex-wrap gap-x-5 gap-y-2 mt-6 text-sm">
+    <a class="text-cyan hover:text-white min-h-11 inline-flex items-center" href="https://web.mit.edu/" target="_blank" rel="noopener">MIT</a>
+    <a class="text-mute hover:text-white min-h-11 inline-flex items-center" href="https://digitalcredential.stanford.edu/check/46A338DC80CED7F9558DAC28DEA6021F378E6B0F0C35F31BAE74CA7DF4E8D83FQitGZUI1M3N2NXVKQ1Y4bUwvaGtkMDdiNnIwN0JoVDFSaTh3V1NsWG9SZWN3VEE3" target="_blank" rel="noopener">Stanford AI Product Design</a>
+    <a class="text-mute hover:text-white min-h-11 inline-flex items-center" href="/resume#record">3 exits</a>
+  </div>
 
   <div class="mt-12 space-y-6">
     <a class="card rounded-2xl p-5 sm:p-6 grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.2fr)] gap-6 items-center block" href="https://www.behance.net/gallery/255069739/DXC-Worksphere-HR-Agentic-Canvas" target="_blank" rel="noopener">
