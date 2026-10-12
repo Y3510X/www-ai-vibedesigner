@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Jesse Orihuela — Resume</title>
+<meta name="description" content="Resume. Jesse Orihuela, Senior AI Product Designer. Agentic Canvas at DXC. MIT. Three exits."/>
+<link rel="icon" href="https://www.aivibedesigner.com/favicon.ico"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        ink: "#0e0e0f",
+        cyan: "#c1fffe",
+        cyandim: "#00e6e6",
+        magenta: "#ff51fa",
+        mint: "#00ec93",
+        mute: "#adaaab",
+        line: "rgba(255,255,255,0.10)"
+      },
+      fontFamily: {
+        display: ["Space Grotesk", "sans-serif"],
+        body: ["Inter", "sans-serif"]
+      }
+    }
+  }
+}
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  body {
+    background-color: #0e0e0f;
+    background-image:
+      radial-gradient(circle at 2px 2px, rgba(193,255,254,0.05) 1px, transparent 0);
+    background-size: 32px 32px;
+  }
+  .card {
+    background: rgba(38, 38, 39, 0.6);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(255,255,255,0.10);
+    transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), background 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .card:hover {
+    border-color: rgba(0, 255, 255, 0.3);
+    background: rgba(45, 45, 46, 0.7);
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.1);
+  }
+  a { cursor: pointer; }
+  .glow-text-pulse {
+    background: linear-gradient(90deg, #c1fffe, #ff51fa, #c1fffe);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: pulse-gradient 4s linear infinite;
+  }
+  @keyframes pulse-gradient {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+    .glow-text-pulse { animation: none; }
+  }
+  @media print {
+    header, footer, .no-print { display: none !important; }
+    body { background: white; color: black; }
+    .card { break-inside: avoid; }
+  }
+</style>
+</head>
+<body class="bg-ink text-white font-body min-h-screen">
+<header class="sticky top-0 z-50 bg-[#0e0e0f]/80 backdrop-blur-xl border-b border-white/10">
+  <div class="max-w-5xl mx-auto px-5 h-16 flex items-center justify-between gap-4">
+    <a href="https://www.aivibedesigner.com/" class="flex items-center gap-2 min-h-11">
+      <span class="material-symbols-outlined text-cyan text-[22px]">terminal</span>
+      <span class="font-display tracking-[0.18em] uppercase text-xs font-bold text-cyan">AI VibeDesigner</span>
+    </a>
+    <nav class="flex items-center gap-5 text-[11px] font-display tracking-[0.16em] uppercase">
+      <a class="text-cyan" href="/resume" aria-current="page">Resume</a>
+      <a class="text-mute hover:text-magenta hidden sm:inline" href="https://behance.com/jesseorihuela" target="_blank" rel="noopener">Portfolio</a>
+      <a class="text-mute hover:text-magenta hidden sm:inline" href="https://x.com/Y3510X/articles" target="_blank" rel="noopener">Articles</a>
+      <a class="text-mute hover:text-magenta" href="https://www.linkedin.com/in/jesseorihuela/" target="_blank" rel="noopener">LinkedIn</a>
+    </nav>
+  </div>
+</header>
+
+<main class="max-w-5xl mx-auto px-5 pt-10 pb-28">
+  <p class="font-display text-[11px] tracking-[0.22em] uppercase text-cyandim">Resume</p>
+  <h1 class="font-display font-bold tracking-tighter leading-[0.9] mt-3 whitespace-nowrap text-[clamp(1.7rem,7.4vw,4.75rem)]">
+    <span class="text-white">JESSE </span><span class="glow-text-pulse">ORIHUELA</span>
+  </h1>
+  <p class="font-display text-xl sm:text-2xl text-white/90 mt-4">Senior AI Product Designer</p>
+  <p class="text-mute text-base sm:text-lg leading-relaxed max-w-2xl mt-4">
+    Leading Agentic Canvas at DXC. Named agents, Glass Box oversight, and Grok bots on a live Figma system. Open to Senior, Staff, and Principal roles.
+  </p>
+  <div class="flex flex-wrap gap-x-5 gap-y-2 mt-6 text-sm">
+    <a class="text-cyan hover:text-white min-h-11 inline-flex items-center" href="https://web.mit.edu/" target="_blank" rel="noopener">MIT</a>
+    <a class="text-mute hover:text-white min-h-11 inline-flex items-center" href="https://digitalcredential.stanford.edu/check/46A338DC80CED7F9558DAC28DEA6021F378E6B0F0C35F31BAE74CA7DF4E8D83FQitGZUI1M3N2NXVKQ1Y4bUwvaGtkMDdiNnIwN0JoVDFSaTh3V1NsWG9SZWN3VEE3" target="_blank" rel="noopener">Stanford AI Product Design</a>
+    <a class="text-mute hover:text-white min-h-11 inline-flex items-center" href="#record">3 exits</a>
+  </div>
+
+  <section class="grid grid-cols-2 lg:grid-cols-4 gap-3 mt-10" aria-label="At a glance">
+    <article class="card rounded-xl p-4">
+      <p class="font-display text-[10px] tracking-[0.18em] uppercase text-cyandim">Now</p>
+      <p class="font-display text-lg font-semibold mt-2 leading-tight">DXC</p>
+      <p class="text-sm text-mute mt-1">Agentic Canvas, in build</p>
+    </article>
+    <article class="card rounded-xl p-4">
+      <p class="font-display text-[10px] tracking-[0.18em] uppercase text-magenta">Exits</p>
+      <p class="font-display text-lg font-semibold mt-2 leading-tight">3 · $150M+</p>
+      <p class="text-sm text-mute mt-1">PrescribeWellness, karmadata, Datum</p>
+    </article>
+    <article class="card rounded-xl p-4">
+      <p class="font-display text-[10px] tracking-[0.18em] uppercase text-mint">Scale</p>
+      <p class="font-display text-lg font-semibold mt-2 leading-tight">40M+ patients</p>
+      <p class="text-sm text-mute mt-1">20,000+ pharmacy locations</p>
+    </article>
+    <article class="card rounded-xl p-4">
+      <p class="font-display text-[10px] tracking-[0.18em] uppercase text-cyan">System</p>
+      <p class="font-display text-lg font-semibold mt-2 leading-tight">40+ bots</p>
+      <p class="text-sm text-mute mt-1">Rules I write. Agents do the rest.</p>
+    </article>
+  </section>
+
+  <section class="mt-14">
+    <div class="flex items-center gap-4 mb-6">
+      <h2 class="font-display text-2xl font-bold text-cyan">AI Product Design</h2>
+      <div class="h-px flex-1 bg-gradient-to-r from-cyan/40 to-transparent"></div>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-3">
+      <a class="card rounded-xl p-5 block min-h-11" href="https://www.behance.net/gallery/255069739/DXC-Worksphere-HR-Agentic-Canvas" target="_blank" rel="noopener">
+        <p class="font-display text-[10px] tracking-[0.18em] uppercase text-cyandim">DXC · HR</p>
+        <h3 class="font-display text-lg font-semibold mt-2">Worksphere</h3>
+        <p class="text-sm text-mute mt-2 leading-relaxed">A shared surface where a team adds named agents. HR, Legal, Finance, and training apps on one model, including the AI Persona.</p>
+      </a>
+      <a class="card rounded-xl p-5 block min-h-11" href="https://www.behance.net/gallery/255067903/DXC-Voice-Training-Coach-for-Insurance-and-HR" target="_blank" rel="noopener">
+        <p class="font-display text-[10px] tracking-[0.18em] uppercase text-magenta">DXC · Voice</p>
+        <h3 class="font-display text-lg font-semibold mt-2">Voice Training Coach</h3>
+        <p class="text-sm text-mute mt-2 leading-relaxed">A live voice session with a transcript, an inspectable rubric, and a score after the session. Built for insurance and HR practice.</p>
+      </a>
+      <a class="card rounded-xl p-5 block min-h-11" href="https://www.behance.net/gallery/246124063/ContractSafe-AI-Contract-Lifecycle-Management" target="_blank" rel="noopener">
+        <p class="font-display text-[10px] tracking-[0.18em] uppercase text-mint">ContractSafe</p>
+        <h3 class="font-display text-lg font-semibold mt-2">AI workspace</h3>
+        <p class="text-sm text-mute mt-2 leading-relaxed">Rebuilt a ten-year B2B product into an AI workspace thousands of people use daily. Confidence, evidence, and a path engineering could ship.</p>
+      </a>
+      <a class="card rounded-xl p-5 block min-h-11" href="https://www.behance.net/gallery/165541197/Datum-Source-AI-Enterprise-SaaS" target="_blank" rel="noopener">
+        <p class="font-display text-[10px] tracking-[0.18em] uppercase text-cyan">Datum · Hadrian</p>
+        <h3 class="font-display text-lg font-semibold mt-2">Factory floor</h3>
+        <p class="text-sm text-mute mt-2 leading-relaxed">Operator experience for AI factory automation in ITAR environments. Changed a live procurement flow the same day an operator said it was wrong.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="mt-14" id="record">
+    <div class="flex items-center gap-4 mb-6">
+      <h2 class="font-display text-2xl font-bold text-cyan">Record</h2>
+      <div class="h-px flex-1 bg-gradient-to-r from-cyan/40 to-transparent"></div>
+    </div>
+    <ol class="space-y-3">
+      <li class="card rounded-xl p-5">
+        <div class="flex flex-wrap justify-between gap-2">
+          <h3 class="font-display font-semibold text-cyandim">Senior AI Product Designer and Design Lead, contract</h3>
+          <p class="text-sm text-mute">May 2026 – Present</p>
+        </div>
+        <p class="text-sm text-white mt-1">DXC Technology</p>
+        <p class="text-sm text-mute mt-3 leading-relaxed">Three product proposals and a shared component system went in front of engineering in one contract window. Those proposals are now in build.</p>
+      </li>
+      <li class="card rounded-xl p-5">
+        <div class="flex flex-wrap justify-between gap-2">
+          <h3 class="font-display font-semibold text-cyandim">Founding Designer and Head of Design</h3>
+          <p class="text-sm text-mute">Sep 2025 – May 2026</p>
+        </div>
+        <p class="text-sm text-white mt-1">ContractSafe</p>
+        <p class="text-sm text-mute mt-3 leading-relaxed">Set the standard the rest of the team shipped against. Agentic contract feeds inside the existing workflow, not a chat bolt-on.</p>
+      </li>
+      <li class="card rounded-xl p-5">
+        <div class="flex flex-wrap justify-between gap-2">
+          <h3 class="font-display font-semibold text-cyandim">Senior Product Designer, contract</h3>
+          <p class="text-sm text-mute">Jun 2025 – Aug 2025</p>
+        </div>
+        <p class="text-sm text-white mt-1">Jaris</p>
+        <p class="text-sm text-mute mt-3 leading-relaxed">AI fee settlement and underwriting. High-density review, built so a person can decide faster.</p>
+      </li>
+      <li class="card rounded-xl p-5">
+        <div class="flex flex-wrap justify-between gap-2">
+          <h3 class="font-display font-semibold text-cyandim">Lead UI/UX Designer</h3>
+          <p class="text-sm text-mute">Nov 2023 – Mar 2025</p>
+        </div>
+        <p class="text-sm text-white mt-1">Finfare</p>
+        <p class="text-sm text-mute mt-3 leading-relaxed">Merchant credit, payments, and a consumer app for onboarding, wallet, and payments.</p>
+      </li>
+      <li class="card rounded-xl p-5">
+        <div class="flex flex-wrap justify-between gap-2">
+          <h3 class="font-display font-semibold text-cyandim">Founding Senior Product Designer and Head of UX · Acquired by Hadrian</h3>
+          <p class="text-sm text-mute">Sep 2021 – Aug 2023</p>
+        </div>
+        <p class="text-sm text-white mt-1">Datum Source</p>
+        <p class="text-sm text-mute mt-3 leading-relaxed">Sat with operators, including at Relativity Space. The design work supported the seed round and the acquisition.</p>
+      </li>
+      <li class="card rounded-xl p-5">
+        <div class="flex flex-wrap justify-between gap-2">
+          <h3 class="font-display font-semibold text-cyandim">EVP, Consumer and Design</h3>
+          <p class="text-sm text-mute">Sep 2019 – Aug 2021</p>
+        </div>
+        <p class="text-sm text-white mt-1">Tabula Rasa HealthCare</p>
+        <p class="text-sm text-mute mt-3 leading-relaxed">After the PrescribeWellness acquisition, stood up the consumer division. White-label patient app adopted by McKesson HealthMart across 500+ pharmacies.</p>
+      </li>
+      <li class="card rounded-xl p-5">
+        <div class="flex flex-wrap justify-between gap-2">
+          <h3 class="font-display font-semibold text-cyandim">First design hire, then CTO / VP Design · Acquired for $150M</h3>
+          <p class="text-sm text-mute">Aug 2013 – Sep 2019</p>
+        </div>
+        <p class="text-sm text-white mt-1">PrescribeWellness</p>
+        <p class="text-sm text-mute mt-3 leading-relaxed">Shipped product and front end. Scaled to 20,000+ locations and 40M+ patients. Hired design and engineering and stayed in the work.</p>
+      </li>
+      <li class="card rounded-xl p-5">
+        <div class="flex flex-wrap justify-between gap-2">
+          <h3 class="font-display font-semibold text-cyandim">Co-founder, Head of Design and Front-End Engineer · Acquired by WCG Clinical</h3>
+          <p class="text-sm text-mute">Sep 2011 – Sep 2017</p>
+        </div>
+        <p class="text-sm text-white mt-1">karmadata</p>
+        <p class="text-sm text-mute mt-3 leading-relaxed">Worked with data scientists to design and build apps on an Oracle database. Self-taught Perl, JavaScript, and C#.</p>
+      </li>
+      <li class="card rounded-xl p-5">
+        <div class="flex flex-wrap justify-between gap-2">
+          <h3 class="font-display font-semibold text-cyandim">Front-End Engineer, then Product Designer</h3>
+          <p class="text-sm text-mute">Jun 2006 – Jun 2011</p>
+        </div>
+        <p class="text-sm text-white mt-1">Fidelity Investments</p>
+        <p class="text-sm text-mute mt-3 leading-relaxed">Built the front end of the portfolio platform and the first financial planning tool. One of the first designers on the Adobe Flash-to-Flex workflow.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="mt-14">
+    <div class="flex items-center gap-4 mb-6">
+      <h2 class="font-display text-2xl font-bold text-mint">Education</h2>
+      <div class="h-px flex-1 bg-gradient-to-r from-mint/40 to-transparent"></div>
+    </div>
+    <div class="grid md:grid-cols-3 gap-3">
+      <a class="card rounded-xl p-5 border-l-2 border-l-cyan block min-h-11" href="https://web.mit.edu/" target="_blank" rel="noopener">
+        <p class="font-display text-[10px] tracking-[0.18em] uppercase text-cyandim">MIT</p>
+        <h3 class="font-display font-semibold mt-2">B.S. Art and Design</h3>
+        <p class="text-sm text-mute mt-2">Architecture. Visual Arts and Computer Science focus. Class of 2001.</p>
+      </a>
+      <a class="card rounded-xl p-5 border-l-2 border-l-mint block min-h-11" href="https://digitalcredential.stanford.edu/check/46A338DC80CED7F9558DAC28DEA6021F378E6B0F0C35F31BAE74CA7DF4E8D83FQitGZUI1M3N2NXVKQ1Y4bUwvaGtkMDdiNnIwN0JoVDFSaTh3V1NsWG9SZWN3VEE3" target="_blank" rel="noopener">
+        <p class="font-display text-[10px] tracking-[0.18em] uppercase text-mint">Stanford</p>
+        <h3 class="font-display font-semibold mt-2">UI/UX Design for AI Products</h3>
+        <p class="text-sm text-mute mt-2">Certificate, 2026. Not a degree.</p>
+      </a>
+      <a class="card rounded-xl p-5 border-l-2 border-l-magenta block min-h-11" href="https://elvtr.com/" target="_blank" rel="noopener">
+        <p class="font-display text-[10px] tracking-[0.18em] uppercase text-magenta">ELVTR</p>
+        <h3 class="font-display font-semibold mt-2">AI Product Design</h3>
+        <p class="text-sm text-mute mt-2">Certificate. Not a degree.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="border-t border-white/10 py-10">
+  <div class="max-w-5xl mx-auto px-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+    <p class="font-display tracking-[0.16em] uppercase text-xs text-cyan">Jesse Orihuela</p>
+    <p class="text-[11px] tracking-[0.14em] uppercase text-mute">© 2026</p>
+  </div>
+</footer>
+</body>
+</html>
