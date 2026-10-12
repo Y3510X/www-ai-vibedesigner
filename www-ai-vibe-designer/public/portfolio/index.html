@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Jesse Orihuela — Portfolio</title>
+<link rel="icon" href="https://www.aivibedesigner.com/favicon.ico"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        ink: "#0e0e0f",
+        cyan: "#c1fffe",
+        mute: "#adaaab",
+        hold: "#262627"
+      },
+      fontFamily: {
+        display: ["Space Grotesk", "sans-serif"],
+        body: ["Inter", "sans-serif"]
+      }
+    }
+  }
+}
+</script>
+<style>
+  body {
+    background-color: #0e0e0f;
+    background-image: radial-gradient(circle at 2px 2px, rgba(193,255,254,0.05) 1px, transparent 0);
+    background-size: 32px 32px;
+  }
+  .card {
+    background: rgba(38, 38, 39, 0.6);
+    border: 1px solid rgba(255,255,255,0.10);
+    transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), background 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .card:hover {
+    border-color: rgba(0, 255, 255, 0.3);
+    background: rgba(45, 45, 46, 0.7);
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.1);
+  }
+  .hold {
+    background: #262627;
+    color: #adaaab;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  a { cursor: pointer; }
+  @media (prefers-reduced-motion: reduce) {
+    .card { transition: none; }
+  }
+</style>
+</head>
+<body class="bg-ink text-white font-body min-h-screen">
+<header class="sticky top-0 z-50 bg-[#0e0e0f]/80 backdrop-blur-xl border-b border-white/10">
+  <div class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between gap-4">
+    <a href="https://www.aivibedesigner.com/" class="flex items-center gap-2 min-h-11">
+      <span class="font-display tracking-[0.18em] uppercase text-xs font-bold text-cyan">AI VibeDesigner</span>
+    </a>
+    <nav class="flex items-center gap-5 text-[11px] font-display tracking-[0.16em] uppercase">
+      <a class="text-mute hover:text-magenta" href="/resume">Resume</a>
+      <a class="text-cyan" href="/portfolio" aria-current="page">Portfolio</a>
+      <a class="text-mute hover:text-magenta hidden sm:inline" href="https://www.linkedin.com/in/jesseorihuela/" target="_blank" rel="noopener">LinkedIn</a>
+    </nav>
+  </div>
+</header>
+<main class="max-w-6xl mx-auto px-5 pt-10 pb-20">
+  <p class="font-display text-[11px] tracking-[0.22em] uppercase text-cyan">Portfolio</p>
+  <h1 class="font-display text-4xl sm:text-6xl font-bold tracking-tighter mt-3">Jesse Orihuela</h1>
+  <p class="text-mute text-lg mt-3 max-w-xl">Senior AI Product Designer. Three projects. The pictures open the case study.</p>
+
+  <div class="mt-12 space-y-6">
+    <a class="card rounded-2xl p-5 sm:p-6 grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.2fr)] gap-6 items-center block" href="https://www.behance.net/gallery/255069739/DXC-Worksphere-HR-Agentic-Canvas" target="_blank" rel="noopener">
+      <div>
+        <p class="font-display text-[11px] tracking-[0.18em] uppercase text-cyan">DXC Technology</p>
+        <h2 class="font-display text-3xl font-semibold mt-2">Worksphere</h2>
+        <p class="text-mute mt-3 leading-relaxed">Agentic Canvas for HR. A shared surface where a team adds named agents. Now the reference model in build.</p>
+        <p class="font-display text-[11px] tracking-[0.14em] uppercase text-cyan mt-5">Agentic Canvas · HR · Glass Box</p>
+      </div>
+      <img class="w-full h-auto rounded-xl" src="worksphere.png" alt="Worksphere, the HR canvas">
+    </a>
+
+    <a class="card rounded-2xl p-5 sm:p-6 grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.2fr)] gap-6 items-center block" href="https://www.behance.net/gallery/246124063/ContractSafe-AI-Contract-Lifecycle-Management" target="_blank" rel="noopener">
+      <div>
+        <p class="font-display text-[11px] tracking-[0.18em] uppercase text-cyan">ContractSafe</p>
+        <h2 class="font-display text-3xl font-semibold mt-2">AI workspace</h2>
+        <p class="text-mute mt-3 leading-relaxed">Rebuilt a ten-year B2B product into an AI workspace thousands of people use daily.</p>
+        <p class="font-display text-[11px] tracking-[0.14em] uppercase text-cyan mt-5">Founding Designer · Glass Box · AI workspace</p>
+      </div>
+      <img class="w-full h-auto rounded-xl" src="contractsafe.jpg" alt="ContractSafe contract workspace">
+    </a>
+
+    <a class="card rounded-2xl p-5 sm:p-6 grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.2fr)] gap-6 items-center block" href="https://www.behance.net/gallery/247785579/PrescribeWellness-Tabula-Rasa-HealthCare" target="_blank" rel="noopener">
+      <div>
+        <p class="font-display text-[11px] tracking-[0.18em] uppercase text-cyan">PrescribeWellness</p>
+        <h2 class="font-display text-3xl font-semibold mt-2">Patient product</h2>
+        <p class="text-mute mt-3 leading-relaxed">Shipped the product and the front end. Scaled to 40M+ patients. Acquired for $150M.</p>
+        <p class="font-display text-[11px] tracking-[0.14em] uppercase text-cyan mt-5">Voice AI · 40M+ patients · $150M</p>
+      </div>
+      <img class="w-full h-auto rounded-xl" src="prescribewellness.jpg" alt="PrescribeWellness patient connections">
+    </a>
+  </div>
+</main>
+</body>
+</html>
